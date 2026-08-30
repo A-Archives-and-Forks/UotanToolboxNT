@@ -1931,7 +1931,7 @@ public partial class AdvancedflashView : UserControl
             var outtxtDir = Path.Combine(parentDir, $"UotanToolbox_{Path.GetFileName(sourcePath)}", "flash_fastbootd.txt");
             var outputDir = Path.Combine(parentDir, $"UotanToolbox_{Path.GetFileName(sourcePath)}", "images");
             Directory.CreateDirectory(outputDir);
-            //await ExtractPayloadSelectedAsync(sourcePath, outputDir, selectedParts);
+            await ExtractPayloadSelectedAsync(sourcePath, outputDir, selectedParts);
 
             var partlist = string.Join("\r\n", selectedParts.Select(x => x.Name).OrderBy(x => x, StringComparer.OrdinalIgnoreCase).ToArray());
             FileHelper.Write(outtxtDir, partlist);
